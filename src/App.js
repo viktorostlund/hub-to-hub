@@ -1,11 +1,23 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   const [inputText, changeInputText] = useState('Hej');
-  function onNewInput() {
-    changeInputText('Vad du skriver!');
+  const [hub1, changeHub1] = useState({});
+  function searchHub() {
+    const url = 'https://api.github.com/users/';
+    axios.get(url + inputText)
+      .then(res => {
+        console.log(res.data)
+        changeHub1({
+          name: res.data.name,
+          created_at: res.data.created_at,
+          followers: res.data.followers,
+          public_repos: res.data.public_repos
+        });
+      })
   }
   return (
     <div className="App">
@@ -22,8 +34,12 @@ function App() {
         >
           Learn React
         </a>
-        <input onChange={onNewInput}/>
-        <h1>{inputText}</h1>
+        <input onChange={e => changeInputText(e.target.value)}/>
+        <button onClick={searchHub}>Search</button>
+        <p>Name: {hub1.name}</p>
+        <p>Created at: {hub1.created_at}</p>
+        <p>Followers: {hub1.followers}</p>
+        <p>Public repos: {hub1.public_repos}</p>
       </header>
     </div>
   );
