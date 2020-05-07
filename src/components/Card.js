@@ -2,13 +2,9 @@ import React from 'react';
 
 function Card({user, deleteUser}) {
   return (
-    <div style={{backgroundColor: 'darkred'}}>
-      {user.name}
-      <button onClick={() => {
-        console.log(user.name)
-          deleteUser(user.name)
-        }
-      }></button>
+    <div className="Card">
+      <p>{user.name}</p>
+      <button type="submit" onClick={() => deleteUser(user.name)}>Remove</button>
         {/* <input onChange={e => changeInputText(e.target.value)}/>
         <button onClick={searchHub}>Search</button>
         <p>Name: {hub1.name}</p>

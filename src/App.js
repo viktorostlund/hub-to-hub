@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
 import Cards from './components/Cards'
@@ -26,11 +26,23 @@ function App() {
     copy.splice(indexToDelete, 1);
     changeUsers(copy);
   }
+  const textInput = useRef(null);
+  
+  useEffect(() => textInput.current.focus());
+
+  function handleKeyPress(e) {
+    if (e.charCode == 13) {
+      search(input);
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <input onChange={(e) => changeInput(e.target.value)} type="text" />
-        <input type="submit" onClick={() => search(input)} value="Submit" />
+        <p>
+          <input ref={textInput} onKeyPress={e => handleKeyPress(e)} onChange={(e) => changeInput(e.target.value)} type="text" />
+          <button type="submit" onClick={() => search(input)}>Add</button>
+        </p>
         <Cards users={users} deleteUser={deleteUser}/>
       </header>
     </div>
