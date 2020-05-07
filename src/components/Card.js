@@ -1,9 +1,14 @@
 import React from 'react';
 
-function Card({user}) {
+function Card({user, deleteUser}) {
   return (
-    <div>
-      {user.name ? user.name : ''}
+    <div style={{backgroundColor: 'darkred'}}>
+      {user.name}
+      <button onClick={() => {
+        console.log(user.name)
+          deleteUser(user.name)
+        }
+      }></button>
         {/* <input onChange={e => changeInputText(e.target.value)}/>
         <button onClick={searchHub}>Search</button>
         <p>Name: {hub1.name}</p>

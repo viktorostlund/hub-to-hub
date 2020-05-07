@@ -5,26 +5,33 @@ import Cards from './components/Cards'
 
 function App() {
   const [input, changeInput] = useState('Hejsan');
-  const [hub1, changeHub1] = useState({name: 'Viktor'});
-  const [hub2, changeHub2] = useState({});
-  const [hub3, changeHub3] = useState({});
+  const [users, changeUsers] = useState([]);
   function search() {
     const url = 'https://api.github.com/users/';
     axios.get(url + input)
       .then(res => {
-        console.log(res.data)
-        changeHub1({
-          name: res.data.name,
-          created_at: res.data.created_at,
-          followers: res.data.followers,
-          public_repos: res.data.public_repos
-        });
+        changeUsers([...users,
+          {
+            name: res.data.name,
+            created_at: res.data.created_at,
+            followers: res.data.followers,
+            public_repos: res.data.public_repos
+          }
+        ]);
       })
+  }
+  function deleteUser(name) {
+    let copy = users.slice();
+    const indexToDelete = users.findIndex(user => user.name === name)
+    copy.splice(indexToDelete, 1);
+    changeUsers(copy);
   }
   return (
     <div className="App">
       <header className="App-header">
-        <Cards users={[hub1,hub2,hub3]} input={input} changeInput={changeInput} search={search}/>
+        <input onChange={(e) => changeInput(e.target.value)} type="text" />
+        <input type="submit" onClick={() => search(input)} value="Submit" />
+        <Cards users={users} deleteUser={deleteUser}/>
       </header>
     </div>
   );

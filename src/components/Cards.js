@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import Card from './Card';
 
-function Cards({users, search, changeInput, input}) {
+function Cards({users, deleteUser}) {
   return (
     <div>
-        {input}
-        <button onClick={() => changeInput('Hej')}></button>
         {users.map(user => { 
-          return <Card user={user}/> 
+          if (user.name) { 
+            return <Card user={user} deleteUser={deleteUser}/>
+          } 
         })}
     </div>
   );
