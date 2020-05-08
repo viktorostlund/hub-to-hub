@@ -15,8 +15,8 @@ function App() {
           {
             name: res.data.name,
             created_at: res.data.created_at,
-            followers: res.data.followers,
-            public_repos: res.data.public_repos
+            Followers: res.data.followers,
+            Repos: res.data.public_repos
           }
         ]);
       })

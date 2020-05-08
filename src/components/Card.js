@@ -5,9 +5,9 @@ function Card({user, deleteUser}) {
   return (
     <div className="Card">
       <p>Username: {user.name}</p>
-      <p>Followers: {user.followers}</p>
+      <p>Followers: {user.Followers}</p>
       <p>Created: {user.created_at}</p>
-      <p>Public repos: {user.public_repos}</p>
+      <p>Public repos: {user.Repos}</p>
       <button type="submit" onClick={() => deleteUser(user.name)}>X</button>
     </div>
   );
