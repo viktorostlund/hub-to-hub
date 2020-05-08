@@ -1,7 +1,8 @@
 import React, {useState, useRef, useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
-import Cards from './components/Cards'
+import Cards from './components/Cards';
+import Stats from './components/Stats';
 
 function App() {
   const [input, changeInput] = useState('Hejsan');
@@ -31,7 +32,7 @@ function App() {
   useEffect(() => textInput.current.focus());
 
   function handleKeyPress(e) {
-    if (e.charCode == 13) {
+    if (e.charCode === 13) {
       search(input);
     }
   }
@@ -43,6 +44,7 @@ function App() {
           <input ref={textInput} onKeyPress={e => handleKeyPress(e)} onChange={(e) => changeInput(e.target.value)} type="text" />
           <button type="submit" onClick={() => search(input)}>Add</button>
         </p>
+        <Stats users={users} />
         <Cards users={users} deleteUser={deleteUser}/>
       </header>
     </div>
