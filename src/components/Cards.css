@@ -1,7 +1,26 @@
 .Cards {
-  display: inline;
-  height: 500px;
+  display: flex;
+  flex-direction: column;
+  background-color: darkmagenta;
   border: none;
-  background-color: rgba(255, 255, 255, 0.096);
-  text-align: left;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.Cards::-webkit-scrollbar-track {
+  border-radius: 9px;
+  background-color: transparent;
+}
+
+.Cards::-webkit-scrollbar {
+  width: 9px;
+  background-color: transparent;
+}
+
+.Cards::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 75, 75, 0.2);
+}
+
+.Cards::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(75, 75, 75, 0.4);
 }

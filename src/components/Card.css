@@ -1,6 +1,6 @@
 .Card {
-    margin: 10px;
-    border: 1px solid whitesmoke;
-    max-width: 100%;
+    border: none;
+    background-color: darkgreen;
+    text-align: left;
   }
   

@@ -34,13 +34,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="left-column-container">
+        <div className="container1">
           <Search input={input} changeInput={changeInput} search={search}/>
           <Cards users={users} deleteUser={deleteUser}/>
         </div>
-        <div className="right-column-container">
-          <Stats users={users} />
-        </div>
+        
+          {users.length ?
+            <div className="container2">
+              <Stats users={users} />
+            </div>
+          :
+          null
+          }
       </header>
     </div>
   );

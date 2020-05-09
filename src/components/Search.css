@@ -1,5 +1,19 @@
 .Search {
-    border: none;
-    background-color: rgb(28, 28, 37);
-    text-align: left;
-  }
+  padding: 50px;
+  margin: 0;
+  border: none;
+  background-color: rgb(28, 28, 37);
+  text-align: left;
+}
+
+input {
+  background-color: white;
+  outline: none;
+  border: 1px solid;
+  border-color: lightgrey;
+}
+
+button {
+  border: 1px solid;
+  border-color: darkgrey;
+}

@@ -5,12 +5,7 @@ import Card from './Card';
 function Cards({users, deleteUser}) {
   return (
     <div className="Cards">
-        {users.map(user => { 
-          if (user.name) { 
-            return <Card user={user} deleteUser={deleteUser}/>
-          }
-          return '';
-        })}
+        {users.map(user => <Card user={user} deleteUser={deleteUser}/>)}
     </div>
   );
 }

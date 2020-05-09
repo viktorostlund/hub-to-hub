@@ -1,7 +1,6 @@
 .Stats {
-    min-width: 300px;
-    max-width: 90%;
-    margin: 10px 0;
     padding: 10px;
     background-color: rgb(71, 71, 71);
+    max-width: 90%;
+    max-height: 90%;
   }

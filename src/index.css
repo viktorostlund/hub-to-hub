@@ -14,20 +14,6 @@ p {
   margin: 10px;
 }
 
-input {
-  margin: 10px;
-  background-color: white;
-  outline: none;
-  border: 1px solid;
-  border-color: lightgrey;
-}
-
-button {
-  margin: 10px;
-  border: 1px solid;
-  border-color: darkgrey;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
