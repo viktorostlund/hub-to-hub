@@ -1,26 +1,9 @@
 .Cards {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
   background-color: darkmagenta;
   border: none;
   max-height: 300px;
-  overflow-y: scroll;
-}
-
-.Cards::-webkit-scrollbar-track {
-  border-radius: 9px;
-  background-color: transparent;
-}
-
-.Cards::-webkit-scrollbar {
-  width: 9px;
-  background-color: transparent;
-}
-
-.Cards::-webkit-scrollbar-thumb {
-  background-color: rgba(75, 75, 75, 0.2);
-}
-
-.Cards::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(75, 75, 75, 0.4);
 }

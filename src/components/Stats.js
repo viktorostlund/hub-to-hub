@@ -11,19 +11,18 @@ function Stats({users}) {
             // height='100%'
             data={users}
             margin={{
-              top: 20, right: 30, left: 20, bottom: 5,
+              top: 10, right: 10, left: 10, bottom: 10,
             }}
           >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="Repos" stackId="a" fill="#8884d8" />
-            <Bar dataKey="Followers" stackId="a" fill="#82ca9d" />
+            {/* <CartesianGrid strokeDasharray="3 3" /> */}
+            {/* <XAxis dataKey="name" /> */}
+            {/* <YAxis /> */}
+            {/* <Tooltip /> */}
+            {/* <Legend /> */}
+            <Bar dataKey="Repos" stackId="a" fill="blue" />
+            <Bar dataKey="Followers" stackId="a" fill="lightblue" />
           </BarChart>
         </ResponsiveContainer>
-        }
       </div>
     );
 }

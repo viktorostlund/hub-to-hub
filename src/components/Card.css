@@ -1,6 +1,15 @@
 .Card {
-    border: none;
-    background-color: darkgreen;
-    text-align: left;
-  }
-  
+  flex: 1 1 0;
+  border: 1px solid pink;
+  padding: 8px;
+  background-color: rgb(71, 71, 71);
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+}
+
+/* Test this: */
+.Card>p {
+  text-overflow: ellipsis;
+}
