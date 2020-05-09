@@ -6,9 +6,21 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.left-column-container {
+  min-width: 350px;
+  max-width: 100%;
+  display: inline;
+}
+
+.right-column-container {
+  min-width: 350px;
+  max-width: 100%;
 }

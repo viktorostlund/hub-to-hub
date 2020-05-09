@@ -1,25 +1,28 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
 import Cards from './components/Cards';
 import Stats from './components/Stats';
+import Search from './components/Search';
 
 function App() {
   const [input, changeInput] = useState('Hejsan');
   const [users, changeUsers] = useState([]);
   function search() {
-    const url = 'https://api.github.com/users/';
-    axios.get(url + input)
-      .then(res => {
-        changeUsers([...users,
-          {
-            name: res.data.name,
-            created_at: res.data.created_at,
-            Followers: res.data.followers,
-            Repos: res.data.public_repos
-          }
-        ]);
-      })
+    if (users.length < 5) {
+      const url = 'https://api.github.com/users/';
+      axios.get(url + input)
+        .then(res => {
+          changeUsers([...users,
+            {
+              name: res.data.name,
+              created_at: res.data.created_at,
+              Followers: res.data.followers,
+              Repos: res.data.public_repos
+            }
+          ]);
+        })
+    }
   }
   function deleteUser(name) {
     let copy = users.slice();
@@ -27,25 +30,17 @@ function App() {
     copy.splice(indexToDelete, 1);
     changeUsers(copy);
   }
-  const textInput = useRef(null);
-  
-  useEffect(() => textInput.current.focus());
-
-  function handleKeyPress(e) {
-    if (e.charCode === 13) {
-      search(input);
-    }
-  }
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          <input ref={textInput} onKeyPress={e => handleKeyPress(e)} onChange={(e) => changeInput(e.target.value)} type="text" />
-          <button type="submit" onClick={() => search(input)}>Add</button>
-        </p>
-        <Stats users={users} />
-        <Cards users={users} deleteUser={deleteUser}/>
+        <div className="left-column-container">
+          <Search input={input} changeInput={changeInput} search={search}/>
+          <Cards users={users} deleteUser={deleteUser}/>
+        </div>
+        <div className="right-column-container">
+          <Stats users={users} />
+        </div>
       </header>
     </div>
   );
