@@ -1,7 +1,7 @@
 .Cards {
-    display: flex;
-    flex-wrap: wrap;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.096);
-    text-align: left;
-  }
+  display: inline;
+  height: 500px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.096);
+  text-align: left;
+}
