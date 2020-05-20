@@ -17,7 +17,7 @@ function Search({ search, input, changeInput }) {
     <p className="Search">
       Type a Github-username: 
       <input ref={textInput} onKeyPress={e => handleKeyPress(e)} onChange={(e) => changeInput(e.target.value)} type="text" />
-      <button type="submit" onClick={() => search(input)}>Add</button>
+      <button type="submit" onClick={() => search(input)}>Add!!!</button>
     </p>
   );
 }
